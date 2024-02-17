@@ -12,13 +12,19 @@ import { AngularFireModule } from '@angular/fire/compat';
 import {AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import {Environments } from './environments';
 import { ErrorReportComponent } from './error-report/error-report.component';
+import { SigninComponent } from './signin/signin.component';
+import { ErrorListComponent } from './error-list/error-list.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HibabejelentesComponent,
     NavbarComponent,
-    ErrorReportComponent
+    ErrorReportComponent,
+    SigninComponent,
+    ErrorListComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

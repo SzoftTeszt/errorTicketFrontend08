@@ -8,10 +8,10 @@ export class EmailService {
 
   constructor() { }
 
-  sendMail(){
+  sendMail(ccaddress:any, content:any){
     let templateParams:any={
-      "cc-address":"jagerattila@gmail.com",
-      "content": "Hibaleírás"
+      "cc-address":ccaddress,
+      "content": content
     }
     emailjs.send("service_0lgcigd","template_hntxyv7",templateParams,"ONK21jFWWoMuoXxqo")
     .then(

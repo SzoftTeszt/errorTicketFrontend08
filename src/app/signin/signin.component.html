@@ -1,0 +1,22 @@
+<p>{{sAdmin|json}}</p>
+<p>{{user|json}}</p>
+
+
+<div class="card" style="width: 18rem;">
+   
+    <div class="card-body">
+      <h5 class="card-title">Sing in</h5>
+      <div class="form-floating mb-3">
+        <input [(ngModel)]="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input [(ngModel)]="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <button (click)="googleLogin()" type="button" class="btn btn-primary">Sing In with Google</button>
+      <button (click)="login()" type="button" class="btn btn-primary">Sing In</button>
+      <button (click)="register()" type="button" class="btn btn-primary">Sing Up</button>
+      <button (click)="claims()" type="button" class="btn btn-primary">Claims</button>
+    </div>
+  </div>

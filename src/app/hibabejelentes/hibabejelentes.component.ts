@@ -71,9 +71,11 @@ export class HibabejelentesComponent {
       errorMessage: this.errorMessage,
       status:"Felvéve"
     }
+    this.email=""
     console.log("Body:", body)
     this.base.pushError(body).then(
       (res)=>{
+        this.emailService.sendMail(this.user.email,this.errorMessage)
         this.sendOk=true
         this.message="A hibajegyet rögzítettük, feldolgozása folyamatban van!"
         setTimeout(() => {          
@@ -99,6 +101,6 @@ export class HibabejelentesComponent {
   }
 
   sendEmail(){
-    this.emailService.sendMail()
+    // this.emailService.sendMail()
   }
 }

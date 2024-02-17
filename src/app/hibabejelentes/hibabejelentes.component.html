@@ -3,7 +3,7 @@
 <button (click)="sendEmail()" type="button" class="btn btn-primary">Email</button>
 <ng-container *ngIf="!user; else hibabejelentes">
     <div class="input-group mb-3">
-        {{email}}
+        <!-- {{email}} -->
         <input [(ngModel)]="email" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
         <span class="input-group-text" id="basic-addon2">@gmail.com</span>
       </div>
