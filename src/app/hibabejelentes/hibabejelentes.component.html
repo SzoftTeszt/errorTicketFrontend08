@@ -1,6 +1,6 @@
 <p>hibabejelentes works!</p>
-user{{user|json}}
-
+<!-- user{{user|json}} -->
+<button (click)="sendEmail()" type="button" class="btn btn-primary">Email</button>
 <ng-container *ngIf="!user; else hibabejelentes">
     <div class="input-group mb-3">
         {{email}}

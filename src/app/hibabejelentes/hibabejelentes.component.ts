@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { BaseService } from '../base.service';
+import { EmailService } from '../email.service';
 
 interface Alert {
 	type: string;
@@ -26,7 +27,7 @@ export class HibabejelentesComponent {
 
   @ViewChild('ngbalert') ngbalert:any
 
-  constructor(private auth:AuthService, private base: BaseService) {
+  constructor(private emailService:EmailService, private auth:AuthService, private base: BaseService) {
     this.auth.getLoggedUser().subscribe(
       (user)=>{
         this.user=user
@@ -95,5 +96,9 @@ export class HibabejelentesComponent {
 
   proba(){
     this.ngbalert.Close()
+  }
+
+  sendEmail(){
+    this.emailService.sendMail()
   }
 }

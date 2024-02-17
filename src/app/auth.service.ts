@@ -12,9 +12,9 @@ export class AuthService {
 
  actionCodeSettings = {
 
-    // url: 'http://localhost:4200/',
+    url: 'http://localhost:4200/',
     // url: 'http://localhost:4200/errorreport',
-    url: 'https://hibajegykezelo-abbcf.web.app',
+    // url: 'https://hibajegykezelo-abbcf.web.app',
     handleCodeInApp:true
   }
 
