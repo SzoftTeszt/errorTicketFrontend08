@@ -1,0 +1,28 @@
+<p>hibabejelentes works!</p>
+user{{user|json}}
+
+<ng-container *ngIf="!user; else hibabejelentes">
+    <div class="input-group mb-3">
+        {{email}}
+        <input [(ngModel)]="email" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+      </div>
+    <button (click)="sendInEmailLink()" type="button" class="btn btn-primary">Hibajegy leadása</button>
+</ng-container>
+<ng-template #hibabejelentes>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Hiba leírása</label>
+        <textarea [(ngModel)]="errorMessage" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button (click)="sendError()" type="button" class="btn btn-primary">Hibajegy leadása</button>
+    <ng-container *ngIf="sendOk">
+        <div class="alert alert-success" role="alert">
+            {{message}}
+        </div>
+    </ng-container>
+    <!-- <ngb-alert #ngbalert  [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert> -->
+</ng-template>
+
+<button (click)="logout()" type="button" class="btn btn-primary">Kilépés</button>
+<!-- <button (click)="proba()" type="button" class="btn btn-primary">ngbalert</button> -->
+
