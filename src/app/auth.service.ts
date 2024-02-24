@@ -16,9 +16,9 @@ export class AuthService {
 
  actionCodeSettings = {
 
-    //url: 'http://localhost:4200/',
+    url: 'http://localhost:4200/',
     // url: 'http://localhost:4200/errorreport',
-     url: 'https://hibajegykezelo-abbcf.web.app',
+    // url: 'https://hibajegykezelo-abbcf.web.app',
     handleCodeInApp:true
   }
 
@@ -27,9 +27,11 @@ export class AuthService {
       (user)=>{
         this.user=user
         if (user){
-          
+          console.log("Belépve", user)
           user.getIdToken().then(
             (token:any)=>{
+
+
               this.user.token=token
               console.log("token", token)
               console.log("token", this.user.token)
@@ -115,6 +117,13 @@ export class AuthService {
 
 
   logout(){
-    this.afAuth.signOut()
+    this.afAuth.signOut().then(
+      ()=>{
+        console.log("Kilépve")
+        this.isLogged.next(null)
+        this.isInformatikus.next(false)
+        this.isSAdmin.next(false)
+      }).catch(()=>console.log("Nem lépett ki!"))
+    
   }
 }
