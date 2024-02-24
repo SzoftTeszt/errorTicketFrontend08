@@ -1,1 +1,49 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">Hibabejelentő</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Hibabejelentés</a>
+          </li>
+          <li  class="nav-item">
+            <a class="nav-link" routerLink="signin">Bejelentkezés</a>
+          </li>
+          <li *ngIf="!isUser" class="nav-item">
+            <a class="nav-link" routerLink="signin">Bejelentkezés</a>
+          </li>
+          <li *ngIf="!isUser" class="nav-item">
+            <a class="nav-link" routerLink="signup">Regisztráció</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="errorlist">Hibajegyek</a>
+          </li> -->
+          <li *ngIf="isAdmin || isInformatikus" class="nav-item">
+            <a class="nav-link" routerLink="errorlist">Hibajegyek</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="errorlist">Hibajegyek</a>
+          </li> -->
+          <li *ngIf="isAdmin" class="nav-item">
+            <a class="nav-link" routerLink="userlist">Felhasználók</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="userlist">Felhasználók</a>
+          </li> -->
+          <li *ngIf="isUser" class="nav-item">
+            <a class="nav-link" (click)="logout()">Kijelentkezés</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Kijelentkezés</a>
+          </li> -->
+      
+       
+        </ul>
+       
+      </div>
+    </div>
+  </nav>

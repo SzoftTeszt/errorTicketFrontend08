@@ -15,6 +15,7 @@ import { ErrorReportComponent } from './error-report/error-report.component';
 import { SigninComponent } from './signin/signin.component';
 import { ErrorListComponent } from './error-list/error-list.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { SigupComponent } from './sigup/sigup.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UserListComponent } from './user-list/user-list.component';
     ErrorReportComponent,
     SigninComponent,
     ErrorListComponent,
-    UserListComponent
+    UserListComponent,
+    SigupComponent
   ],
   imports: [
     BrowserModule,

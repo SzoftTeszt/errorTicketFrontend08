@@ -24,6 +24,8 @@ export class HibabejelentesComponent {
   errorMessage:any
   sendOk=false
   message=""
+  sendLink=false
+  isInformatikus=false
 
   @ViewChild('ngbalert') ngbalert:any
 
@@ -34,6 +36,11 @@ export class HibabejelentesComponent {
         console.log("user:", user)
       }
     )
+
+    this.auth.getInformatikus().subscribe(
+      (res)=>this.isInformatikus=res
+    )
+
     this.email= window.localStorage.getItem("email")
     if (this.email){
     this.auth.signInEmailLink(this.email).then(
@@ -53,6 +60,8 @@ export class HibabejelentesComponent {
     window.localStorage.setItem("email", this.email)
     console.log("email",this.email)
     this.auth.sendInEmailLink(this.email)
+    this.email=""
+    this.sendLink=true
     // this.auth.signInEmailLink("jagerattila@gmail.com")
     // .then(      (res)=>console.log("Belépés",res)
     
@@ -60,6 +69,7 @@ export class HibabejelentesComponent {
 
   logout(){
     this.auth.logout()
+    this.sendLink=false
   }
   sendError(){
     
@@ -67,9 +77,9 @@ export class HibabejelentesComponent {
     //this.logout()
     var body={
       email:this.user.email,
-      date: new Date(),
+      date: new Date().toLocaleString(),
       errorMessage: this.errorMessage,
-      status:"Felvéve"
+      status:0
     }
     this.email=""
     console.log("Body:", body)
@@ -80,7 +90,8 @@ export class HibabejelentesComponent {
         this.message="A hibajegyet rögzítettük, feldolgozása folyamatban van!"
         setTimeout(() => {          
             this.sendOk=false
-            this.logout()          
+            this.errorMessage=""
+            if(!this.isInformatikus) this.logout()          
         }, 2000);
       }
     ).catch(

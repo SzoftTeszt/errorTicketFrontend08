@@ -1,1 +1,23 @@
-<p>error-list works!</p>
+{{hibaLista|json}}
+<div class="row my-2">
+    <div *ngFor="let oszlop of oszlopok" class="col">{{oszlop}}</div>
+    <div class="col">
+        Status
+    </div>
+    <div class="col">
+        Actions
+    </div>
+</div>
+<div *ngFor="let hiba of hibaLista" class="row my-1">
+    <div *ngFor="let oszlop of oszlopok" class="col">{{hiba[oszlop]}}</div>
+    <div class="col">
+        <select [(ngModel)]="hiba.status" class="form-select" aria-label="Default select example">
+            
+            <option *ngFor="let status of statuszok" [value]="status.value">{{status.text}}</option>
+           
+          </select>
+    </div>
+    <div class="col">
+        <button (click)="saveError(hiba)" type="button" class="btn btn-primary">Save</button>
+    </div>
+</div>
